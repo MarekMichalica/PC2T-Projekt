@@ -1,0 +1,29 @@
+package projekt;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+
+public class Kniznica {
+	private Map<String, Kniha> knihy;
+	
+	public Kniznica() {
+		this.knihy = new HashMap<>();
+	}
+	
+	public void pridajKnihu(Scanner scanner) {
+		System.out.println("Zadajte nazov knihy:");
+		String nazov = scanner.nextLine();
+		System.out.println("Zadajte autora knihy:");
+		String autor = scanner.nextLine();
+		System.out.println("Zadajte rok vydania knihy:");
+		int rokVydania = scanner.nextInt();
+		
+		scanner.nextLine(); // cistenie bufferu
+		
+		System.out.println("Vyberte typ knihy: 1 pre roman, 2 pre ucebnicu");
+		
+	}
+	
+}
