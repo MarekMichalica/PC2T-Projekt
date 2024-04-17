@@ -45,40 +45,5 @@ public class Kniznica {
 		zoznamKnih.put(nazov, kniha);
 		
 		System.out.println("Kniha bola uspesne pridana.");
-	}
-	public void upravKnihu(Scanner scanner) {
-		System.out.println("Zadajte nazov knihy, ktoru chcete upravit: ");
-		String nazov = scanner.nextLine();
-		
-		if(!zoznamKnih.containsKey(nazov)) {
-			System.out.println("Kniha nebola najdena v zozname");
-		}
-		
-		Kniha kniha = zoznamKnih.get(nazov);
-		System.out.println("Vyberte, co chcete upravit: ");
-		System.out.println("1. Autor, 2. Rok vydania, 3. Stav dostupnosti");
-		int volba = scanner.nextInt();
-		
-		switch(volba) {
-			case 1:
-				System.out.println("Zadajte meno noveho autora: ");
-				String Autor = scanner.nextLine();
-				kniha.setAutor(Autor);
-				break;
-			case 2:
-				System.out.println("Zadajte novy rok vydania: ");
-				int rokVydania = scanner.nextInt();
-				kniha.setRokVydania(rokVydania);
-				break;
-			case 3:
-				System.out.println("Zadajte novy stav dostupnosti: ");
-				boolean dostupna = scanner.nextBoolean();
-				kniha.setDostupna(dostupna);
-				break;
-			default:
-				System.out.println("Zadali ste nespravnu operaciu");
-		}
-		
-		System.out.println("Kniha bola uspesne aktualizovana");
-	}
+	}	
 }
