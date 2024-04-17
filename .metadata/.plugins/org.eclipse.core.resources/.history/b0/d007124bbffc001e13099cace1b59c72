@@ -143,7 +143,7 @@ public class Kniznica {
         
         List<Kniha> zoznamKnihOdVybranehoAutora = new ArrayList<>();
         for (Kniha kniha : zoznamKnih.values()) {
-            if (kniha.getAutor() == autor) {
+            if (kniha.getAutor().contains(autor)) {
             	zoznamKnihOdVybranehoAutora.add(kniha);
             }
         }
@@ -153,26 +153,5 @@ public class Kniznica {
         }
         
         zoznamKnihOdVybranehoAutora.sort(Comparator.comparing(Kniha::getRokVydania));
-	}
-	public void zobrazKnihyPodlaZanru(Scanner scanner) {
-		System.out.println("Zadajte zaner (DETEKTIVNY, FANTASTICKY, VEDECKO_FANTASTICKY, HISTORICKY, PSYCHOLOGICKY)");
-		Zaner zaner = Zaner.valueOf(scanner.nextLine().toUpperCase());
-		
-		List<Kniha> zoznamKnihPodlaVybranehoZanru = new ArrayList<>();
-        for (Kniha kniha : zoznamKnih.values()) {
-            if (kniha.getZaner() == zaner) {
-            	zoznamKnihPodlaVybranehoZanru.add(kniha);
-            }
-        }
-        
-        if(zoznamKnihPodlaVybranehoZanru.isEmpty()) {
-        	System.out.println("Pod zadanym zanrom sme nenasli ziadne knihy");
-        }
-        
-        zoznamKnihPodlaVybranehoZanru.sort(Comparator.comparing(Kniha::getNazov));
-        
-        for(Kniha kniha : zoznamKnihPodlaVybranehoZanru) {
-        	System.out.println("Nazov:" + kniha.getNazov() + " - " + "Autor: " + kniha.getAutor() + " - " + "Rok Vydania: " + kniha.getRokVydania() + " - " + "Dostupna: " + kniha.getDostupna() + " - " + "Zaner: " + (kniha.getZaner() != null ? kniha.getZaner() : kniha.getHodnotenie()));
-        }
 	}
 }

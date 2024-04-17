@@ -22,10 +22,10 @@ public class Main {
             System.out.println("11. Nacitanie informacie o danej knihe zo suboru");
             System.out.println("12. Ulozenie vsetkych informacii do databazy a ukoncenie programu");
             System.out.print("Vasa volba: ");
-            int volba = scanner.nextInt();
+            int choice = scanner.nextInt();
             scanner.nextLine();
 
-            switch (volba) {
+            switch (choice) {
                 case 1:
                 	kniznica.pridajKnihu(scanner);
                     break;
@@ -48,7 +48,6 @@ public class Main {
                 	kniznica.zobrazKnihyPodlaAutora(scanner);
                     break;
                 case 8:
-                	kniznica.zobrazKnihyPodlaZanru(scanner);
                     break;
                 case 9:
                     break;
