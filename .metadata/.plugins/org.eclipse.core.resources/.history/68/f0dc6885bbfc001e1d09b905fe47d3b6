@@ -124,16 +124,4 @@ public class Kniznica {
 			 System.out.println("Nazov:" + kniha.getNazov() + " - " + "Autor: " + kniha.getAutor() + " - " + "Rok Vydania: " + kniha.getRokVydania() + " - " + "Dostupna: " + kniha.getDostupna() + " - " + "Zaner: " + (kniha.getZaner() != null ? kniha.getZaner() : kniha.getHodnotenie()));
 		}
 	}
-	public void najdiKnihu(Scanner scanner) {
-		System.out.println("Zadajte nazov knihy, ktoru chcete najst");
-		String nazov = scanner.nextLine();
-		
-		if(!zoznamKnih.containsKey(nazov)) {
-			System.out.println("Kniha nebola najdena v zozname");
-			return;
-		}
-		
-		Kniha kniha = zoznamKnih.get(nazov);
-		System.out.println("Nazov:" + kniha.getNazov() + " - " + "Autor: " + kniha.getAutor() + " - " + "Rok Vydania: " + kniha.getRokVydania() + " - " + "Dostupna: " + kniha.getDostupna() + " - " + "Zaner: " + (kniha.getZaner() != null ? kniha.getZaner() : kniha.getHodnotenie()));
-	}
 }
