@@ -184,7 +184,7 @@ public class Kniznica {
 		}
 	}
 	
-	public void zapisInformaciiOKniheDoSuboru(Scanner scanner) {
+	public void zapisKnihuDoSuboru(Scanner scanner) {
 		try {
 	        System.out.println("Zadajte nazov knihy, ktory chcete zapisat do suboru");
 	        String nazov = scanner.nextLine();
@@ -194,8 +194,8 @@ public class Kniznica {
 	            return;
 	        }
 	        
-	        String menoSuboru = "knihy/" + nazov + ".txt";
-	        PrintWriter writer = new PrintWriter(menoSuboru); // true pre pridanie do existujúceho súboru
+	        String menoSuboru = "subor.txt";
+	        PrintWriter writer = new PrintWriter(new FileWriter(menoSuboru, true)); // true pre pridanie do existujúceho súboru
 	        
 	        for (Kniha kniha : zoznamKnih.values()) {
 	            if (kniha.getNazov().equals(nazov)) {

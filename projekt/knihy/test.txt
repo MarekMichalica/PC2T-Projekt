@@ -1,0 +1,1 @@
+Nazov: test - Autor: tedt - Rok Vydania: 123 - Dostupna: true - Zaner: DETEKTIVNY

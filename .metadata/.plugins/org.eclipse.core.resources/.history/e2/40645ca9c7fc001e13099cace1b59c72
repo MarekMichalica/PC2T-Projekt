@@ -184,7 +184,7 @@ public class Kniznica {
 		}
 	}
 	
-	public void zapisInformaciiOKniheDoSuboru(Scanner scanner) {
+	public void zapisKnihuDoSuboru(Scanner scanner) {
 		try {
 	        System.out.println("Zadajte nazov knihy, ktory chcete zapisat do suboru");
 	        String nazov = scanner.nextLine();

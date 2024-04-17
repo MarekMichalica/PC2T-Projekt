@@ -17,7 +17,7 @@ public class Main {
             System.out.println("6. Vyhladanie knihy");
             System.out.println("7. Vypis vsetkych knih daneho autora");
             System.out.println("8. Vypis vsetkych knih podla zanru");
-            System.out.println("9. Vypis vsetkych vypozicanych knih");
+            System.out.println("9. Vypis vsetkych vypozicanych knih s informaciou o type");
             System.out.println("10. Ulozenie informacie o vybranej knihe do suboru");
             System.out.println("11. Nacitanie informacie o danej knihe zo suboru");
             System.out.println("12. Ulozenie vsetkych informacii do databazy a ukoncenie programu");
@@ -54,7 +54,6 @@ public class Main {
                 	kniznica.zobrazPozicaneKnihy(scanner);
                     break;
                 case 10:
-                	kniznica.zapisInformaciiOKniheDoSuboru(scanner);
                     break;
                 case 11:
                     break;

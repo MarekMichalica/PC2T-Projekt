@@ -184,30 +184,18 @@ public class Kniznica {
 		}
 	}
 	
-	public void zapisInformaciiOKniheDoSuboru(Scanner scanner) {
-		try {
-	        System.out.println("Zadajte nazov knihy, ktory chcete zapisat do suboru");
-	        String nazov = scanner.nextLine();
-	        
-	        if (!zoznamKnih.containsKey(nazov)) {
-	            System.out.println("Kniha nebola najdena v zozname");
-	            return;
-	        }
-	        
-	        String menoSuboru = "knihy/" + nazov + ".txt";
-	        PrintWriter writer = new PrintWriter(menoSuboru); // true pre pridanie do existujúceho súboru
-	        
-	        for (Kniha kniha : zoznamKnih.values()) {
-	            if (kniha.getNazov().equals(nazov)) {
-	                writer.println("Nazov: " + kniha.getNazov() + " - " + "Autor: " + kniha.getAutor() + " - " + "Rok Vydania: " + kniha.getRokVydania() + " - " + "Dostupna: " + kniha.getDostupna() + " - " + "Zaner: " + (kniha.getZaner() != null ? kniha.getZaner() : kniha.getHodnotenie()));
-	            }
-	        }
-	        
-	        writer.close();
-	        
-	        System.out.println("Kniha bola uspesne zapisana do suboru");
-	    } catch (IOException e) {
-	        System.out.println("Chyba pri ukladani do suboru: " + e.getMessage());
-	    }
+	public void zapisKnihuDoSuboru(Scanner scanner) {
+		System.out.println("Zadajte nazov knihy, ktory chcete zapisat do suboru");
+		String nazov = scanner.nextLine();
+		
+		if(!zoznamKnih.containsKey(nazov)) {
+			System.out.println("Kniha nebola najdena v zozname");
+			return;
+		}
+		
+		System.out.println("Zadajte nazov suboru pre ulozenie");
+		String nazovSuboru = scanner.nextLine();
+		
+		
 	}
 }
