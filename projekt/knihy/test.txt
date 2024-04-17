@@ -1,1 +1,1 @@
-test,tedt,123,true,DETEKTIVNY,5
+test,tedt,123,true,DETEKTIVNY

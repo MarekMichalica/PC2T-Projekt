@@ -1,1 +1,1 @@
-nejaky,nejaky,321,true,FANTASTICKY,4.7
+nejaky,nejaky,321,true,FANTASTICKY

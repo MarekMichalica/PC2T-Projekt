@@ -24,17 +24,17 @@ public class Kniznica {
 		scanner.nextLine(); // cistenie bufferu
 		
 		System.out.println("Vyberte typ knihy: 1 pre roman, 2 pre ucebnicu");
-		int vyberTypuKnihy = scanner.nextInt();
+		int typKnihy = scanner.nextInt();
 		
 		scanner.nextLine(); // cistenie bufferu
 		
 		Zaner zaner = null;
 		int hodnotenie = 0;
 		
-		if(vyberTypuKnihy == 1) {
+		if(typKnihy == 1) {
 			System.out.println("Zadajte zaner romanu (DETEKTIVNY, FANTASTICKY, VEDECKO_FANTASTICKY, HISTORICKY, PSYCHOLOGICKY)");
 			zaner = Zaner.valueOf(scanner.nextLine().toUpperCase());
-		} else if (vyberTypuKnihy == 2) {
+		} else if (typKnihy == 2) {
 			System.out.println("Zadajte rocnik, pre ktory je ucebnica vhodna: ");
 			hodnotenie = scanner.nextInt();
 			
@@ -228,18 +228,12 @@ public class Kniznica {
 	        	String autor = castiRiadku[1];
 	        	int rokVydania = Integer.parseInt(castiRiadku[2]);
 	        	boolean dostupna = Boolean.parseBoolean(castiRiadku[3]);
-	        	
-	        	int hodnotenie = 0;
-	        	Zaner zaner = null;
-	        	
-	        	if(!castiRiadku[4].isEmpty()) {
-	        		zaner = Zaner.valueOf(castiRiadku[4]);
-	        	} if (castiRiadku.length > 5 && !castiRiadku[5].isEmpty()) {
-	        		hodnotenie = Integer.parseInt(castiRiadku[5]);
-                }
+	        	Zaner zaner = Zaner.valueOf(castiRiadku[4]);
+	        	int hodnotenie = Integer.parseInt(castiRiadku[5]);
 	        	
 	        	Kniha kniha = new Kniha(nazov, autor, rokVydania, dostupna, zaner, hodnotenie);
-	        	System.out.println("Nazov:" + kniha.getNazov() + " - " + "Autor: " + kniha.getAutor() + " - " + "Rok Vydania: " + kniha.getRokVydania() + " - " + "Dostupna: " + kniha.getDostupna() + " - " + "Zaner: " + (kniha.getZaner() != null ? kniha.getZaner() : kniha.getHodnotenie()));	
+	        	System.out.println("Nazov:" + kniha.getNazov() + " - " + "Autor: " + kniha.getAutor() + " - " + "Rok Vydania: " + kniha.getRokVydania() + " - " + "Dostupna: " + kniha.getDostupna() + " - " + "Zaner: " + (kniha.getZaner() != null ? kniha.getZaner() : kniha.getHodnotenie()));
+	        		
 	        }
 	        
 	        citanieSuboru.close();
