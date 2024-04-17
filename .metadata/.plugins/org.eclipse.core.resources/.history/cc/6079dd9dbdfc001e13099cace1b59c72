@@ -3,7 +3,6 @@ package projekt;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.*;
 
 public class Kniznica {
 	private Map<String, Kniha> zoznamKnih;
@@ -37,7 +36,7 @@ public class Kniznica {
 			System.out.println("Zadajte rocnik, pre ktory je ucebnica vhodna: ");
 			hodnotenie = scanner.nextInt();
 			
-			scanner.nextLine(); // cistenie bufferu
+			scanner.nextLine(); // cistenien bufferu
 		} else {
 			System.out.println("Zadali ste nespravnu volbu");
 		}
@@ -136,22 +135,5 @@ public class Kniznica {
 		
 		Kniha kniha = zoznamKnih.get(nazov);
 		System.out.println("Nazov:" + kniha.getNazov() + " - " + "Autor: " + kniha.getAutor() + " - " + "Rok Vydania: " + kniha.getRokVydania() + " - " + "Dostupna: " + kniha.getDostupna() + " - " + "Zaner: " + (kniha.getZaner() != null ? kniha.getZaner() : kniha.getHodnotenie()));
-	}
-	public void zobrazKnihyPodlaAutora(Scanner scanner) {
-		System.out.println("Zadajte meno autora:");
-        String autor = scanner.nextLine();
-        
-        List<Kniha> zoznamKnihOdVybranehoAutora = new ArrayList<>();
-        for (Kniha kniha : zoznamKnih.values()) {
-            if (kniha.getAutor().contains(autor)) {
-            	zoznamKnihOdVybranehoAutora.add(kniha);
-            }
-        }
-        
-        if(zoznamKnihOdVybranehoAutora.isEmpty()) {
-        	System.out.println("Od zadaneho autora sme nenasli ziadne knihy");
-        }
-        
-        zoznamKnihOdVybranehoAutora.sort(Comparator.comparing(Kniha::getRokVydania));
 	}
 }

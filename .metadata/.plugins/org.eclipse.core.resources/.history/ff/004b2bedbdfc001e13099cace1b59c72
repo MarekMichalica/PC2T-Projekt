@@ -37,7 +37,7 @@ public class Kniznica {
 			System.out.println("Zadajte rocnik, pre ktory je ucebnica vhodna: ");
 			hodnotenie = scanner.nextInt();
 			
-			scanner.nextLine(); // cistenie bufferu
+			scanner.nextLine(); // cistenien bufferu
 		} else {
 			System.out.println("Zadali ste nespravnu volbu");
 		}
