@@ -1,13 +1,11 @@
 package projekt;
 
 import java.util.Scanner;
-import java.util.*;
 
 public class Main {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		Kniznica kniznica = new Kniznica();
-		DBConnection dbconnection = new DBConnection();
 		
 		while (true) {
             System.out.println("Vyberte akciu:");
@@ -62,14 +60,6 @@ public class Main {
                 	kniznica.citanieInformaciiOKniheZoSuboru(scanner);
                     break;
                 case 12:
-                	if (dbconnection.getDBConnection()) { // Skontrolujte pripojenie k databáze
-                        HashSet<Kniha> knihy = kniznica.getZoznamKnih();
-                        dbconnection.saveKnihy(knihy); // Uložte knihy do databázy
-                        dbconnection.closeConnection(); // Uzavrite pripojenie k databáze
-                        System.out.println("Všetky knihy boli úspešne uložené do databázy.");
-                    } else {
-                        System.out.println("Nepodarilo sa pripojiť k databáze.");
-                    }
                     break;
                 default:
                     System.out.println("Neplatna volba, zadajte cislo od 1 do 12.");

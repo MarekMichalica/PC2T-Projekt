@@ -248,7 +248,4 @@ public class Kniznica {
 	        System.out.println("Subor sa nepodarilo najst: " + e.getMessage());
 	    }
 	}
-	public HashSet<Kniha> getZoznamKnih() {
-	    return new HashSet<>(zoznamKnih.values());
-	}
 }
