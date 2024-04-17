@@ -175,11 +175,4 @@ public class Kniznica {
         	System.out.println("Nazov:" + kniha.getNazov() + " - " + "Autor: " + kniha.getAutor() + " - " + "Rok Vydania: " + kniha.getRokVydania() + " - " + "Dostupna: " + kniha.getDostupna() + " - " + "Zaner: " + (kniha.getZaner() != null ? kniha.getZaner() : kniha.getHodnotenie()));
         }
 	}
-	public void zobrazPozicaneKnihy(Scanner scanner) {
-		for(Kniha kniha : zoznamKnih.values()) {
-			if(!kniha.getDostupna()) {
-				System.out.println("Nazov:" + kniha.getNazov() + " - " + "Autor: " + kniha.getAutor() + " - " + "Rok Vydania: " + kniha.getRokVydania() + " - " + "Dostupna: " + kniha.getDostupna() + " - " + "Zaner: " + (kniha.getZaner() != null ? kniha.getZaner() : kniha.getHodnotenie()));
-			}
-		}
-	}
 }

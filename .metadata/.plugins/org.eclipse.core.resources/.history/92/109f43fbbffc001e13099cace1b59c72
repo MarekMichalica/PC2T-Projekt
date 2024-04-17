@@ -51,7 +51,6 @@ public class Main {
                 	kniznica.zobrazKnihyPodlaZanru(scanner);
                     break;
                 case 9:
-                	kniznica.zobrazPozicaneKnihy(scanner);
                     break;
                 case 10:
                     break;
