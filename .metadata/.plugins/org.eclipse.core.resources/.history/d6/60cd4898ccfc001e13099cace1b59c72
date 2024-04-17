@@ -199,7 +199,7 @@ public class Kniznica {
 	        
 	        for (Kniha kniha : zoznamKnih.values()) {
 	            if (kniha.getNazov().equals(nazov)) {
-	                writer.println(kniha.getNazov() + "," + kniha.getAutor() + "," + kniha.getRokVydania() + "," + kniha.getDostupna() + "," + (kniha.getZaner() != null ? kniha.getZaner() : kniha.getHodnotenie()));
+	                writer.println("Nazov: " + kniha.getNazov() + "," + "Autor: " + kniha.getAutor() + "," + "Rok Vydania: " + kniha.getRokVydania() + "," + "Dostupna: " + kniha.getDostupna() + "," + "Zaner: " + (kniha.getZaner() != null ? kniha.getZaner() : kniha.getHodnotenie()));
 	            }
 	        }
 	        
@@ -217,7 +217,7 @@ public class Kniznica {
 	        String nazovKnihy = scanner.nextLine();
 	        
 	        String menoSuboru = "knihy/" + nazovKnihy + ".txt";
-	        File subor  = new File(menoSuboru); 
+	        File subor  = new File(menoSuboru);
 	        Scanner citanieSuboru = new Scanner(subor);
 	        
 	        while(citanieSuboru.hasNextLine()) {

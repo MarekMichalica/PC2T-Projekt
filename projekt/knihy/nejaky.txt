@@ -1,1 +1,1 @@
-Nazov: nejaky - Autor: nejaky - Rok Vydania: 321 - Dostupna: true - Zaner: FANTASTICKY
+nejaky,nejaky,321,true,FANTASTICKY,4.7

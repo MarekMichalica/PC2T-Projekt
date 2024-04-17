@@ -199,7 +199,7 @@ public class Kniznica {
 	        
 	        for (Kniha kniha : zoznamKnih.values()) {
 	            if (kniha.getNazov().equals(nazov)) {
-	                writer.println(kniha.getNazov() + "," + kniha.getAutor() + "," + kniha.getRokVydania() + "," + kniha.getDostupna() + "," + (kniha.getZaner() != null ? kniha.getZaner() : kniha.getHodnotenie()));
+	                writer.println("Nazov: " + kniha.getNazov() + "," + "Autor: " + kniha.getAutor() + "," + "Rok Vydania: " + kniha.getRokVydania() + "," + "Dostupna: " + kniha.getDostupna() + "," + "Zaner: " + (kniha.getZaner() != null ? kniha.getZaner() : kniha.getHodnotenie()));
 	            }
 	        }
 	        
@@ -214,29 +214,18 @@ public class Kniznica {
 	public void citanieInformaciiOKniheZoSuboru(Scanner scanner) {
 		try {
 	        System.out.println("Zadajte nazov knihy, o ktorej chcete zistit informacie zo suboru");
-	        String nazovKnihy = scanner.nextLine();
+	        String nazov = scanner.nextLine();
 	        
-	        String menoSuboru = "knihy/" + nazovKnihy + ".txt";
-	        File subor  = new File(menoSuboru); 
-	        Scanner citanieSuboru = new Scanner(subor);
-	        
-	        while(citanieSuboru.hasNextLine()) {
-	        	String riadok = citanieSuboru.nextLine();
-	        	String[] castiRiadku = riadok.split(",");
-	        	
-	        	String nazov = castiRiadku[0];
-	        	String autor = castiRiadku[1];
-	        	int rokVydania = Integer.parseInt(castiRiadku[2]);
-	        	boolean dostupna = Boolean.parseBoolean(castiRiadku[3]);
-	        	Zaner zaner = Zaner.valueOf(castiRiadku[4]);
-	        	int hodnotenie = Integer.parseInt(castiRiadku[5]);
-	        	
-	        	Kniha kniha = new Kniha(nazov, autor, rokVydania, dostupna, zaner, hodnotenie);
-	        	System.out.println("Nazov:" + kniha.getNazov() + " - " + "Autor: " + kniha.getAutor() + " - " + "Rok Vydania: " + kniha.getRokVydania() + " - " + "Dostupna: " + kniha.getDostupna() + " - " + "Zaner: " + (kniha.getZaner() != null ? kniha.getZaner() : kniha.getHodnotenie()));
-	        		
+	        if (!zoznamKnih.containsKey(nazov)) {
+	            System.out.println("Kniha nebola najdena v zozname");
+	            return;
 	        }
 	        
-	        citanieSuboru.close();
+	        String menoSuboru = "knihy/" + nazov + ".txt";
+	        File subor  = new File(menoSuboru); // true pre pridanie do existujúceho súboru
+	        Scanner citanieSuboru = new Scanner(subor);
+	        
+	        
 	       
 	    } catch (FileNotFoundException e) {
 	        System.out.println("Subor sa nepodarilo najst: " + e.getMessage());
