@@ -121,7 +121,8 @@ public class Kniznica {
 		}
 		
 		for(Kniha kniha : zoznamKnih.values()) {
-			 System.out.println("Nazov:" + kniha.getNazov() + " - " + "Autor: " + kniha.getAutor() + " - " + "Rok Vydania: " + kniha.getRokVydania() + " - " + "Dostupna: " + kniha.getDostupna() + " - " + "Zaner: " + (kniha.getZaner() != null ? kniha.getZaner() : kniha.getHodnotenie()));
+			 System.out.println(kniha.getNazov() + " - " + String.join(", ", kniha.getAutor()) + " - " + kniha.getRokVydania() +
+	                    " - " + kniha.getDostupna() + " - " + (kniha.getZaner() != null ? kniha.getZaner() : kniha.getHodnotenie()));
 		}
 	}
 }

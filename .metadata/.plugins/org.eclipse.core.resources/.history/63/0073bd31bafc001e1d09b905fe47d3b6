@@ -36,10 +36,9 @@ public class Main {
                 	kniznica.vymazKnihu(scanner);
                     break;
                 case 4:
-                	kniznica.oznacKnihu(scanner);
+                	kniznica.zobrazZoznamKnih(scanner);
                     break;
                 case 5:
-                	kniznica.zobrazZoznamKnih(scanner);
                     break;
                 case 6:
                     break;
