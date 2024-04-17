@@ -92,20 +92,4 @@ public class Kniznica {
 		zoznamKnih.remove(nazov);
 		System.out.println("Kniha bola uspesne zmazana");
 	}
-	
-	public void oznacKnihu(Scanner scanner) {
-		System.out.println("Zadajte nazov knihy, ktoru chcete oznacit");
-		String nazov = scanner.nextLine();
-		
-		if(!zoznamKnih.containsKey(nazov)) {
-			System.out.println("Kniha nebola najdena v zozname");
-		}
-		
-		Kniha kniha = zoznamKnih.get(nazov);
-		System.out.println("Zadajte novy stav dostupnosti: true pre dostupna, false pre nedostupna");
-		boolean dostupna = scanner.nextBoolean();
-		
-		kniha.setDostupna(dostupna);
-		System.out.println("Stav knihy bol uspesne zmeneny.");		
-	}
 }
