@@ -33,7 +33,7 @@ public class Main {
                 	kniznica.upravKnihu(scanner);
                     break;
                 case 3:
-                	kniznica.vymazKnihu(scanner);
+                	kniznica.upravKnihu(scanner);
                     break;
                 case 4:
                     break;

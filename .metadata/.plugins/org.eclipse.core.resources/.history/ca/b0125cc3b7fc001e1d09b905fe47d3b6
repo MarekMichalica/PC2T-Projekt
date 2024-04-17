@@ -30,10 +30,8 @@ public class Main {
                 	kniznica.pridajKnihu(scanner);
                     break;
                 case 2:
-                	kniznica.upravKnihu(scanner);
                     break;
                 case 3:
-                	kniznica.vymazKnihu(scanner);
                     break;
                 case 4:
                     break;
