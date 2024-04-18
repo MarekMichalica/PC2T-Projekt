@@ -62,10 +62,10 @@ public class Main {
                 	kniznica.citanieInformaciiOKniheZoSuboru(scanner);
                     break;
                 case 12:
-                	if (dbconnection.getDBConnection()) { // Skontrolujte pripojenie k databáze
+                	if (dbconnection.getDBConnection()) {
                         HashSet<Kniha> knihy = kniznica.getZoznamKnih();
-                        dbconnection.saveKnihy(knihy); // Uložte knihy do databázy
-                        dbconnection.closeConnection(); // Uzavrite pripojenie k databáze
+                        dbconnection.saveKnihy(knihy);
+                        dbconnection.closeConnection();
                         System.out.println("Všetky knihy boli úspešne uložené do databázy.");
                     } else {
                         System.out.println("Nepodarilo sa pripojiť k databáze.");

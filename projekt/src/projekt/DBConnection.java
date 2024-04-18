@@ -10,7 +10,7 @@ public class DBConnection {
         if (connection == null) {
             try {
                 Class.forName("org.sqlite.JDBC");
-                connection = DriverManager.getConnection("jdbc:sqlite:db/SQLite/Kniznica.db");
+                connection = DriverManager.getConnection("jdbc:sqlite:SQLite/Kniznica.db");
                 createTableKnihy();
             } catch (SQLException | ClassNotFoundException e) {
                 e.printStackTrace();
