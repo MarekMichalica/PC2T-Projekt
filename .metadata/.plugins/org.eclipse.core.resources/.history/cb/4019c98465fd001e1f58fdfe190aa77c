@@ -66,9 +66,9 @@ public class Main {
                         HashSet<Kniha> knihy = kniznica.getZoznamKnih();
                         dbconnection.saveKnihy(knihy);
                         dbconnection.closeConnection();
-                        System.out.println("Vsetky knihy boli uspešne ulozene do databazy.");
+                        System.out.println("Všetky knihy boli úspešne uložené do databázy.");
                     } else {
-                        System.out.println("Nepodarilo sa pripojit k databaze.");
+                        System.out.println("Nepodarilo sa pripojiť k databáze.");
                     }
                     break;
                 default:
