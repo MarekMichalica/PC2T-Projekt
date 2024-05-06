@@ -6,6 +6,10 @@ import java.util.HashSet;
 public class DBConnection {
     private Connection connection;
 
+    public DBConnection() {
+        getDBConnection();
+    }
+
     public boolean getDBConnection() {
         if (connection == null) {
             try {
@@ -22,7 +26,9 @@ public class DBConnection {
 
     public void closeConnection() {
         try {
-            connection.close();
+            if (connection != null) {
+                connection.close();
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -37,23 +43,48 @@ public class DBConnection {
             System.out.println(e.getMessage());
         }
     }
-
     public void saveKnihy(HashSet<Kniha> knihy) {
         createTableKnihy();
-        String sql = "INSERT INTO knihy (nazov, autor, rokVydania, dostupna, zaner, hodnotenie) VALUES (?,?,?,?,?,?)";
+        String insertSql = "INSERT INTO knihy (nazov, autor, rokVydania, dostupna, zaner, hodnotenie) VALUES (?,?,?,?,?,?)";
+        String updateSql = "UPDATE knihy SET autor = ?, rokVydania = ?, dostupna = ?, zaner = ?, hodnotenie = ? WHERE nazov = ?";
+        
         try {
             for (Kniha kniha : knihy) {
-                PreparedStatement pstmt = connection.prepareStatement(sql);
-                pstmt.setString(1, kniha.getNazov());
-                pstmt.setString(2, kniha.getAutor());
-                pstmt.setInt(3, kniha.getRokVydania());
-                pstmt.setBoolean(4, kniha.getDostupna());
-                pstmt.setString(5, kniha.getZaner().name());
-                pstmt.setInt(6, kniha.getHodnotenie());
-                pstmt.executeUpdate();
+                String nazov = kniha.getNazov();
+                String autor = kniha.getAutor();
+                int rokVydania = kniha.getRokVydania();
+                boolean dostupna = kniha.getDostupna();
+                Zaner zaner = kniha.getZaner();
+                int hodnotenie = kniha.getHodnotenie();
+
+                PreparedStatement checkStmt = connection.prepareStatement("SELECT COUNT(*) FROM knihy WHERE nazov = ?");
+                checkStmt.setString(1, nazov);
+                ResultSet rs = checkStmt.executeQuery();
+                rs.next();
+                int count = rs.getInt(1);
+
+                if (count > 0) {
+                    PreparedStatement updateStmt = connection.prepareStatement(updateSql);
+                    updateStmt.setString(1, autor);
+                    updateStmt.setInt(2, rokVydania);
+                    updateStmt.setBoolean(3, dostupna);
+                    updateStmt.setString(4, zaner.name());
+                    updateStmt.setInt(5, hodnotenie);
+                    updateStmt.setString(6, nazov);
+                    updateStmt.executeUpdate();
+                } else {
+                    PreparedStatement insertStmt = connection.prepareStatement(insertSql);
+                    insertStmt.setString(1, nazov);
+                    insertStmt.setString(2, autor);
+                    insertStmt.setInt(3, rokVydania);
+                    insertStmt.setBoolean(4, dostupna);
+                    insertStmt.setString(5, zaner.name());
+                    insertStmt.setInt(6, hodnotenie);
+                    insertStmt.executeUpdate();
+                }
             }
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            System.out.println("Chyba pri ukladani knih do databazy: " + e.getMessage());
         }
     }
 

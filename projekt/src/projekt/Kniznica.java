@@ -1,8 +1,5 @@
 package projekt;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Scanner;
 import java.util.*;
 import java.io.*;
 
@@ -12,6 +9,11 @@ public class Kniznica {
 	public Kniznica() {
 		this.zoznamKnih = new HashMap<>();
 	}
+	
+	public void pridajKnihuZDatabazy(Kniha kniha) {
+        zoznamKnih.put(kniha.getNazov(), kniha);
+    }
+
 	
 	public void pridajKnihu(Scanner scanner) {
 		System.out.println("Zadajte nazov knihy:");
@@ -154,6 +156,10 @@ public class Kniznica {
         }
         
         zoznamKnihOdVybranehoAutora.sort(Comparator.comparing(Kniha::getRokVydania));
+        
+        for(Kniha kniha : zoznamKnihOdVybranehoAutora) {
+        	System.out.println("Nazov:" + kniha.getNazov() + " - " + "Autor: " + kniha.getAutor() + " - " + "Rok Vydania: " + kniha.getRokVydania() + " - " + "Dostupna: " + kniha.getDostupna() + " - " + "Zaner: " + (kniha.getZaner() != null ? kniha.getZaner() : kniha.getHodnotenie()));
+        }
 	}
 	public void zobrazKnihyPodlaZanru(Scanner scanner) {
 		System.out.println("Zadajte zaner (DETEKTIVNY, FANTASTICKY, VEDECKO_FANTASTICKY, HISTORICKY, PSYCHOLOGICKY)");

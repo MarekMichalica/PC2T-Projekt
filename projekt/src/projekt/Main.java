@@ -9,6 +9,12 @@ public class Main {
 		Kniznica kniznica = new Kniznica();
 		DBConnection dbconnection = new DBConnection();
 		
+		HashSet<Kniha> knihyZDatabazy = dbconnection.loadKnihy();
+	    for (Kniha kniha : knihyZDatabazy) {
+	        kniznica.pridajKnihuZDatabazy(kniha);
+	    }
+
+		
 		while (true) {
             System.out.println("Vyberte akciu:");
             System.out.println("1. Pridanie novej knihy");
@@ -70,6 +76,7 @@ public class Main {
                     } else {
                         System.out.println("Nepodarilo sa pripojit k databaze.");
                     }
+                	System.exit(0);
                     break;
                 default:
                     System.out.println("Neplatna volba, zadajte cislo od 1 do 12.");
